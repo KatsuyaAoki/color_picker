@@ -6,8 +6,19 @@ import { ref, reactive, computed } from 'vue';
   const blue = ref(0);
 
   let paletteColor = computed(() => {
+    if(red.value > 255) {
+      red.value = 255;
+    }
+    if(green.value > 255) {
+      green.value = 255;
+    }
+    if(blue.value > 255) {
+      blue.value = 255 ;
+    }
     return `rgb(${red.value}, ${green.value}, ${blue.value})`
   });
+
+
 
 </script>
 
@@ -24,7 +35,7 @@ import { ref, reactive, computed } from 'vue';
           <input type="range" class="form-range" min="0" max="255" id="red" v-model="red">
         </dd>
         <dd>
-          <input type="text" class="form-control" id="red" v-model="red">
+          <input type="number" class="form-control" min="0" max="255" id="red" v-model="red">
         </dd>
       </dl>
       <dl class="col-md-4 col-12">
@@ -35,7 +46,7 @@ import { ref, reactive, computed } from 'vue';
         <dd>
         </dd>
         <dd>
-          <input type="text" class="form-control" id="green" v-model="green">
+          <input type="number" class="form-control" min="0" max="255" id="green" v-model="green">
         </dd>
       </dl>
       <dl class="col-md-4 col-12">
@@ -46,7 +57,7 @@ import { ref, reactive, computed } from 'vue';
           <input type="range" class="form-range" min="0" max="255" id="blue" v-model="blue">
         </dd>
         <dd>
-          <input type="text" class="form-control" id="blue" v-model="blue">
+          <input type="number" class="form-control" min="0" max="255" id="blue" v-model="blue">
         </dd>
       </dl>
     </div>
