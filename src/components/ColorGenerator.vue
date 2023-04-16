@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ColorList from './ColorList.vue';
 import { ref, computed } from 'vue';
 
 const red = ref<string>('0');
